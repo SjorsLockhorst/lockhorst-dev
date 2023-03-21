@@ -3,8 +3,8 @@
     <header class="shadow-sm">
       <nav class="container mx-auto p-2 flex justify-between">
         <ul class="flex gap-4">
-          <li><NuxtLink to="/">Home</NuxtLink></li>
-          <li><NuxtLink to= "/blog">Blog</NuxtLink></li>
+          <li><NuxtLink :class="$colorMode.value + '-mode'" to="/">Home</NuxtLink></li>
+          <li><NuxtLink :class="$colorMode.value + '-mode'" to="/blog">Blog</NuxtLink></li>
           <select v-model="$colorMode.preference">
             <option value="system">System</option>
             <option value="light">Light</option>
@@ -22,13 +22,10 @@
 </template>
 
 <style scoped>
-.router-link-exact-active {
-  color: #164e63;
+.light-mode.router-link-exact-active {
+  color: #000000;
+}
+.dark-mode.router-link-exact-active {
+  color: #ffffff;
 }
 </style>
-
-<script setup lang="ts">
-  const colorMode = useColorMode()
-
-  console.log(colorMode)
-</script>
