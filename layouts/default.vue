@@ -9,7 +9,6 @@
             <option value="system">System</option>
             <option value="light">Light</option>
             <option value="dark">Dark</option>
-            <option value="sepia">Sepia</option>
           </select>
         </ul>
       </nav>
@@ -21,6 +20,7 @@
   </div>
 </template>
 
+<!--TODO: Fix these colors. -->
 <style scoped>
 .light-mode.router-link-exact-active {
   color: #000000;
@@ -29,3 +29,4 @@
   color: #ffffff;
 }
 </style>
+<!--TODO: Add automatically initialising to system here.-->
