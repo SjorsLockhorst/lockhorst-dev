@@ -3,8 +3,9 @@
     <header class="shadow-sm">
       <nav class="container mx-auto p-2 flex justify-between">
         <ul class="flex gap-4">
-          <li><NuxtLink :class="$colorMode.value + '-mode'" to="/">Home</NuxtLink></li>
-          <li><NuxtLink :class="$colorMode.value + '-mode'" to="/blog">Blog</NuxtLink></li>
+          <li><NuxtLink to="/">Home</NuxtLink></li>
+          <li><NuxtLink to="#links">Links</NuxtLink></li>
+          <li><NuxtLink to="/blog">Blog</NuxtLink></li>
           <select v-model="$colorMode.preference">
             <option value="system">System</option>
             <option value="light">Light</option>
