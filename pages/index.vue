@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-8xl mb-16 mt-8">Hi there!</h1>
+    <h1 class="text-8xl mb-16 mt-8">{{ greeting }}!</h1>
     <div class="grid grid-cols-2 gap-8">
       <p>
         My name is Sjors Lockhorst. I'm a Master student in Artificial Intelligence at
@@ -14,7 +14,7 @@
     <h2 class="text-4xl text-center" id="links">Links</h2>
 
     <div class="grid grid-cols-4 justify-items-center mt-16 text-4xl">
-      <a v-for="(link, index) in socialMediaLinks" :key="index" :href="link.url" target="_blank" :class="link.hoverColor">
+      <a v-for="(link, index) in socialMediaLinks" :key="index" :href="link.url" target="_blank" :class="'hover:' + link.hoverColor">
         <i :class="link.icon"></i>
       </a>
     </div>
@@ -32,14 +32,49 @@ interface SocialMediaLink {
 }
 
 export default defineComponent({
+  computed: {
+    /**
+    * A computed property that returns the appropriate greeting based on the current time.
+    * The greeting will change dynamically as the time changes.
+    */
+    greeting(): string {
+      const currentHour = new Date().getHours();
+      if (currentHour >= 5 && currentHour < 12) {
+        return "Good morning"
+      }
+      else if (currentHour >= 12 && currentHour < 18) {
+        return "Good afternoon"
+      }
+      return "Good evening"
+    }
+  },
   data() {
+    /**
+    * A computed property that returns the appropriate greeting based on the current time.
+    * The greeting will change dynamically as the time changes.
+    */
     return {
       socialMediaLinks: [
-        { icon: "fab fa-github", url: "https://github.com/SjorsLockhorst", hoverColor: "hover:text-gray-400" },
-        { icon: "fab fa-twitter", url: "https://twitter.com/SjorsLockhorst", hoverColor: "hover:text-blue-400" },
-        { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/sjors-lockhorst-73a72512a/", hoverColor: "hover:text-blue-800" },
-        { icon: "fa fa-envelope", url: "mailto:sjors@lockhorst.dev", hoverColor: "hover:text-purple-400" },
-
+        {
+          icon: "fab fa-github",
+          url: "https://github.com/SjorsLockhorst",
+          hoverColor: "text-gray-400"
+        },
+        {
+          icon: "fab fa-twitter",
+          url: "https://twitter.com/SjorsLockhorst",
+          hoverColor: "text-blue-400"
+        },
+        {
+          icon: "fab fa-linkedin",
+          url: "https://www.linkedin.com/in/sjors-lockhorst-73a72512a/",
+          hoverColor: "text-blue-800"
+        },
+        {
+          icon: "fa fa-envelope",
+          url: "mailto:sjors@lockhorst.dev",
+          hoverColor: "text-purple-400"
+        },
       ] as SocialMediaLink[],
     }
   }
