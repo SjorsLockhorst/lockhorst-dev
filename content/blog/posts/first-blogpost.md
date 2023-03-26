@@ -9,3 +9,4 @@ description: 'A blogpost about life, the universe and everything.'
 export default () => {
     console.log('Code block')
 }
+```
